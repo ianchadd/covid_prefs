@@ -1,0 +1,113 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<script>
+    let itemCount = {{Constants.num_questions}}
+    function createElementName(gamble, id) {
+        ret = "id_Q" + id.toString() + "_gamble_" + gamble.toString();
+        return ret;
+    }
+
+    window.addEventListener("load", function () {
+        for (let gamble = 0; gamble < 2; gamble++) {
+            for (let id = 0; id < itemCount; id++) {
+                document.getElementById(createElementName(gamble, id)).addEventListener("change", OnChanged);
+
+            }
+        }
+
+    });
+
+    function OnChanged(event) {
+        if (event.target.checked) {
+            parts = event.target.id.split("_");
+            gamble = parts[parts.length - 1];
+            id = parseInt(parts[1].replace("Q", ""));
+            for (let index = 0; index < itemCount; index++) {
+                if (index == id) { continue; }
+                elementnameleft = createElementName(0, index);
+                elementnameright = createElementName(1, index);
+                document.getElementById(elementnameleft).removeEventListener("change", OnChanged);
+                document.getElementById(elementnameright).removeEventListener("change", OnChanged);
+                if (index < id) { document.getElementById(elementnameleft).checked = true;
+                        document.getElementById(elementnameright).checked = false;
+                }
+                else if(index > id){ document.getElementById(elementnameleft).checked = false;
+                        document.getElementById(elementnameright).checked = true;
+                }
+
+                document.getElementById(elementnameleft).addEventListener("change", OnChanged);
+                document.getElementById(elementnameright).addEventListener("change", OnChanged);
+            }
+        }
+    }
+</script>
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+<b> Urn with Equal Number of Red and Black Balls </b>    
+    <br>
+    <br>
+    The urn from which we can draw a ball is composed of {{Constants.number_balls_red}} red balls and {{Constants.number_balls_black}} black balls. 
+    <br>
+    <br>
+    The urn gamble pays {{endowment_int}} tokens if the ball drawn is {{player.color}}.
+    <br>
+    <br>
+    For each row below, think about whether you prefer the urn gamble, or the sure amount on the right. If you prefer some sure amount to the urn gamble, then we will assume that you prefer any amount greater than that to the gamble as well, and fill in the other options accordingly.
+    <br>
+    <br>
+    However, this automatic filling will often be premature. Therefore, you should keep clicking on options you prefer until the choice in each row indicates exactly what you would prefer. This is important, because when you submit your preferences, we will pick one row at random and pay you accourdingly. If you selected the sure amount in that row, we will pay you that amount. If you selected the urn gamble in that row, we will draw a ball from the urn, and pay you accordingly.
+    <br>
+    <br>
+    What would you rather receive (make sure a radio button in eaach row is selected)?
+</p>
+
+{{ form.Q0_gamble.errors }}
+{{ form.Q1_gamble.errors }}
+{{ form.Q2_gamble.errors }}
+{{ form.Q3_gamble.errors }}
+{{ form.Q4_gamble.errors }}
+{{ form.Q5_gamble.errors }}
+{{ form.Q6_gamble.errors }}
+{{ form.Q7_gamble.errors }}
+{{ form.Q8_gamble.errors }}
+{{ form.Q9_gamble.errors }}
+{{ form.Q10_gamble.errors }}
+
+{{ form.Q0_gamble }} <br>
+{{ form.Q1_gamble }} <br>
+{{ form.Q2_gamble }} <br>
+{{ form.Q3_gamble }} <br>
+{{ form.Q4_gamble }} <br>
+{{ form.Q5_gamble }} <br>
+{{ form.Q6_gamble }} <br>
+{{ form.Q7_gamble }} <br>
+{{ form.Q8_gamble }} <br>
+{{ form.Q9_gamble }} <br>
+{{ form.Q10_gamble }} <br>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

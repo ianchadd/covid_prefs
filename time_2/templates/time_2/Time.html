@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+{{form.time100.errors}}
+{{form.time150.errors}}
+
+<p>
+    Suppose you were offered an immediate payment of $100 or a delayed payment 30 days from now. How much would you need to be paid in 30 days in order to forgo $100 immediately?
+    <br>
+</p>
+
+{{form.time100}}
+
+<br>
+<hr>
+<br>
+
+<p>
+    
+    Suppose you were offered a payment of $150 in 30 days or a delayed payment in 60 days. How much would you require to be paid in 60 days to forgo $150 in 30 days?
+    <br>
+</p>
+
+{{form.time150}}
+<br>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

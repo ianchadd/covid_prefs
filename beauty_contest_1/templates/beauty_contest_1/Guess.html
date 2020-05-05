@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+    In this task, we ask that you pick a number between 0 and 100. When all surveys are submitted, we will randomly group you with {{Constants.num_others}} other people (so you will be in a group of {{size_of_group}}) and the participant who picks a number closest to two thirds of the average of the corresponding {{size_of_group}} numbers picked will win ${{reward_int}} (if you tie with one person, you'll get ${{reward_half}}, if you tie with two other people you'll get ${{reward_one_thirds}}, and so on...)
+    <br>
+    <br>
+    Please pick a number between 0 and 100. You may choose 0 or 100 if you wish:
+</p>
+
+    {{ form.guess.errors }}
+
+  <div class="center">
+    {{ form.guess }}
+  </div>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

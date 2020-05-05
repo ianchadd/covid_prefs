@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+{{form.abstain_scale.errors}}
+{{form.postpone_scale.errors}}
+
+<p>
+    How well does the following statement describe you as a person? 'I abstain from things today so that I will be able to afford more tomorrow.' Please use a scale from 0 to 10, where 0 means: 'does not describe me at all' and 10 means: 'describes me perfectly'
+    <br>
+</p>
+
+{{form.abstain_scale}}
+
+<br>
+<hr>
+<br>
+
+<p>
+    
+    How well does the following statement describe you as a person? 'I tend to pospone things even though it would be better to get them done right away.' Please use a scale from 0 to 10, where 0 means: 'does not describe me at all' and 10 means: 'describes me perfectly'
+    <br>
+</p>
+
+{{form.postpone_scale}}
+<br>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

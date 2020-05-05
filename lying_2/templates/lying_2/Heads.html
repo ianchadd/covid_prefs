@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+    Please grab a coin that has both a "heads" and a "tails" side as well as a piece of paper and something to write with. We would like you to flip this coin {{Constants.number_coins_str}} ({{Constants.number_coins}}) times and write down the outcome of these tosses in sequence. Whenever two consecutive tosses lead to different results ("heads" and then "tails" or vice versa), we will call it a "switch". 
+    <br>
+    <br>
+    For example, in the sequence (Heads, Heads, Tails, Heads, Heads) there are two switches;
+    <br>
+    In the sequence (Tails, Heads, Tails, Heads, Heads) there are three switches.
+    <br>
+    <br>
+    We will pay you {{reward_int}} tokens for every "switch" you get.
+    <br>
+    <br>
+    Please flip the coin {{Constants.number_coins_str}} ({{Constants.number_coins}}) times now, and keep track of the number of switches you get.
+    <br>
+    <br>
+    How many switches did you get?
+</p>
+
+    {{ form.switches_count.errors }}
+
+  <div class="center">
+    {{ form.switches_count }}
+  </div>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

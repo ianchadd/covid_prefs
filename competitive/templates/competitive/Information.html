@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+    This next task asks you to add together series of numbers. You will be given three minutes to complete as many sums as possible. When all surveys are submitted, we will randomly group you with 3 other people (so you will be in a group of 4). <b> You will be paid only if you achieve the highest number of correctly answered sums within this group, in which case you will be paid {{reward_int}} tokens per sum correctly answered. </b>
+    <br>
+    <br>
+    In case of a tie between those who completed the highest number of sums, we will randomly determine the participant who will be paid.
+</p>
+
+<div class="center">
+    <button>
+    Press Here to Start
+    </button>
+</div>
+
+{% endblock %}

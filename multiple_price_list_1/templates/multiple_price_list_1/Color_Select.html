@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}Title{% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+   The following choice will involve an urn containing {{number_balls_total}} balls, {{Constants.number_balls_red}} which are red and {{Constants.number_balls_black}} of which are black.
+    <br>
+    <br>
+    Which color would you prefer to be paid {{endowment_int}} tokens for (if it is drawn from the urn in the following questions)? Note that this means you will be paid 0 tokens if the other color is drawn.
+</p>
+
+{{ form.winning_color_red.errors }}
+{{ form.winning_color_red }}
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

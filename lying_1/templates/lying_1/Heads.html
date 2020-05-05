@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+    Please grab a coin that has both a "heads" and a "tails" side. We would like you to flip this coin {{Constants.number_coins_str}} ({{Constants.number_coins}}) times. We will pay you {{reward_int}} tokens for every "heads" you get.
+    <br>
+    <br>
+    Please flip the coin {{Constants.number_coins_str}} ({{Constants.number_coins}}) times now, and keep track of how many times it comes up heads.
+    <br>
+    <br>
+    How many times did it come up heads?
+</p>
+
+    {{ form.heads_count.errors }}
+
+  <div class="center">
+    {{ form.heads_count }}
+  </div>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

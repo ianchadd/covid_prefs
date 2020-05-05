@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+In the randomly determined group of 4 (you and 3 others), where do you think you rank in terms of the number of sums correctly answered (1 corresponding to the highest number of sums correctly answered in the group, 4 corresponding to the lowest number of sums correctly answered in the group)? You will earn an additional {{reward_guess_int}} tokens if your guess is correct.
+</p>    
+    
+{% formfields %}
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

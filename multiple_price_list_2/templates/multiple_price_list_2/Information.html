@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+
+<p>
+    In the next task we will ask you to assess the value of several gambles. The payoff of the gamble will depend on draws from different virtual urns filled containing both red and black balls. We will give you some information on the composition of each urn.
+   <br>
+   <br>
+    We'll let you pick which color ball you would like to pay off for each gamble. If you choose a gamble on an urn, we will draw one ball from it. If that ball is the color you chose, you will receive a reward. If it is the other color, you will receive nothing. 
+   <br>
+   <br>
+    The mechanism for selecting the gamble may take some getting used to. We will provide you with a list of rewards in increments of {{increment_int}} tokens, and for each one, we ask that you think whether you prefer that amount, or taking the urn gamble. Once you click on an option, we'll fill in the rest of the choices for you so that they make sense (this will save you time!).
+   <br>
+   <br>
+    However, you should keep clicking on options you prefer until each line reflects your preferences. At the end of the survey, we will randomly select one row from the list, and you will get whatever you chose on that line. If you specified you prefer a sure amount on that line, you'll get that amount. If you specified that you prefer the gamble, then we will draw a ball from the urn, and pay you according to the description above.
+</p>
+
+{% formfields %}
+
+<div class="box">
+    <button>
+    Continue
+    </button>
+</div>
+
+
+{% endblock %}

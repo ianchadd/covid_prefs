@@ -1,0 +1,65 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+   You now have {{endowment_int}} tokens (or ${{endowment_dollars}}) to be divided between you and another, randomly chosen, survey participant. 
+    <br>
+    <br>
+    All other survey participants will be given the same choice: that is, they will be given {{endowment_int}} tokens to divide between themselves and another participant. 
+    <br>
+    <br>
+    Your payoff from this section will be how much you allocate to yourself, plus how much is allocated to you by another randomly chosen participant. Note that the recipient, the participant that receives money from you, and the participant that you receive money from will be different, and both will be chosen randomly.
+</p>
+
+{{ form.kept.errors }}
+{{ form.offer.errors }}
+
+<style type="text/css">
+.tg  {border:none;border-collapse:collapse;border-spacing:0;}
+.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:15px;overflow:hidden;
+  padding:10px 5px;word-break:normal;}
+.tg th{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:15px;font-weight:normal;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-nrix{text-align:center;vertical-align:middle}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-9wq8">Amount for you: </th>
+    <th class="tg-9wq8">{{form.kept}}</th>
+    <th class="tg-nrix">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th class="tg-nrix">Amount for recipient: </th>
+    <th class="tg-nrix">{{form.offer}}</th>
+  </tr>
+</table>
+
+<p>
+<br>
+   (Amounts entered should be numbers between 0 and {{endowment_int}}.)    
+</p>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}

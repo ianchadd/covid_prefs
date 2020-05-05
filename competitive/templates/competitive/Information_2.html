@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+   You will be given an additional three minutes to correctly answer as many sums as possible. Please pick how you would like to be paid from the following two options:
+    <br>
+    <br>    
+</p>
+
+{{form.piece_rate_payment}}
+{{form.piece_rate_payment.errors}}
+
+<p>
+   <br>
+    In case you tie with another participant(s), we will randomly determine whom of these gets first place, and you will be paid only if it is you who is declared the winner.
+</p>  
+
+<div class="box">
+    <button>
+    Press Here to Start
+    </button>
+</div>
+
+{% endblock %}

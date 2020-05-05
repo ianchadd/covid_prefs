@@ -1,0 +1,84 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<style>
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
+    .box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+ </style>
+
+<p>
+    You will now play a simple game. You will have to choose one of two actions: A1 or A2. Once surveys have been submitted, we will randomly pair you with another participant and your payoff will depend on both of your actions. Namely, we will look at the pair of numbers corresponding to both of your actions (A1 or A2 for you, B1 or B2 for your partner). The first (underlined) number of the entry will correspond to your payoff (in tokens), while the second number in that entry will correspond to the payoff your partner would get.
+    <br>
+    <br>
+    For example, if you pick A1 and the person you are randomly matched with picked B1, then you would both get 80 tokens. If you pick A1 and the person you are matched with picked B2, you get 24 tokens and the other person would get 100 tokens. 
+    <br>
+    <br>
+    Please click on the label of the action you choose to play.
+</p>
+
+{{form.A1.errors}}
+
+<div class="center">
+<style type="text/css">
+.tg  {border:none;border-collapse:collapse;border-spacing:0;}
+.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:3px 5px;
+  word-break:normal;}
+.tg th{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;
+  overflow:hidden;padding:3px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-18eh{border-color:#000000;font-weight:bold;text-align:center;vertical-align:middle}
+.tg .tg-my77{border-color:#000000;font-size:100%;text-align:center;vertical-align:middle}
+.tg .tg-d05w{border-color:#000000;color:#333333;text-align:center;vertical-align:middle}
+.tg .tg-ljam{border-color:#000000;text-align:center;vertical-align:bottom}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-xwyw{border-color:#000000;text-align:center;vertical-align:middle}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-my77"></th>
+    <th class="tg-my77"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-18eh" colspan="2">Other Participant's Actions</th>
+  </tr>
+  <tr>
+    <td class="tg-xwyw"></td>
+    <td class="tg-xwyw"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-18eh">B1</td>
+    <td class="tg-18eh">B2</td>
+  </tr>
+  <tr>
+    <td class="tg-18eh" rowspan="2">Your <br>Actions</td>
+    <td class="tg-ljam" rowspan="2">{{form.A1}}</td>
+    <td class="tg-1wig">A1</td>
+    <td class="tg-xwyw"><span style="text-decoration:underline">80</span>, 80</td>
+    <td class="tg-xwyw"><span style="text-decoration:underline">24</span>, 100</td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">A2</td>
+    <td class="tg-xwyw"><span style="text-decoration:underline">100</span>, 24</td>
+    <td class="tg-d05w"><span style="text-decoration:underline">50</span>, 50</td>
+  </tr>
+</table>
+</div>
+
+<div class="box">
+    <button>
+    Submit
+    </button>
+</div>
+
+{% endblock %}
