@@ -9,6 +9,7 @@ class Constants(BaseConstants):
     name_in_url = 'my_public_goods'
     players_per_group = 3
     num_rounds = 1
+    new_constant = 10
     endowment = c(1000)
     multiplier = 2
 class Subsession(BaseSubsession):
