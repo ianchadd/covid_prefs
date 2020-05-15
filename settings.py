@@ -6,6 +6,7 @@ REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 DEMO_PAGE_INTRO_HTML = ''
 ROOMS = []
+POINTS_CUSTOM_NAME = 'tokens'
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
