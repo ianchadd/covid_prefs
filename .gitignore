@@ -10,3 +10,4 @@ _static_root
 _bots*s
 __temp*
 ./scripts
+.DS_Store
